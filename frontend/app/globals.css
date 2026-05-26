@@ -494,7 +494,7 @@
 .netflix-row-track {
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: minmax(240px, 320px);
+  grid-auto-columns: minmax(200px, 260px);
   gap: 18px;
   overflow-x: auto;
   padding-bottom: 10px;
@@ -506,7 +506,7 @@
 }
 
 .netflix-row-card {
-  min-width: 240px;
+  min-width: 200px;
 }
 
 @media (max-width: 768px) {
@@ -515,6 +515,6 @@
   }
 
   .netflix-row-track {
-    grid-auto-columns: minmax(220px, 260px);
+    grid-auto-columns: minmax(180px, 220px);
   }
 }

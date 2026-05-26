@@ -231,7 +231,7 @@ export default function HomePage() {
 
   const heroSlides = [
     {
-      src: heroImages.feature || "/sonagi-hero.png.png",
+      src: heroImages.feature || "/placeholder.jpg",
       alt: "겸플릭스 메인 이미지",
       href: "/genre?category=action",
       label: "액션 웹툰 바로 보기",
@@ -452,6 +452,7 @@ export default function HomePage() {
                         fill
                         className="object-cover transition-transform duration-300 group-hover:scale-105"
                         sizes="(min-width: 1024px) 420px, 80vw"
+                        loading={category.id === "growth" ? "eager" : "lazy"}
                       />
                     </div>
                   )}
