@@ -35,7 +35,7 @@ const categories = [
     cardTone: "from-[#141414] via-[#141414] to-[#101010]",
     burstTone: "netflix-badge",
     heroImage: {
-      src: "/placeholder.jpg",
+      src: "/dsnfv.png",
       alt: "웹툰 대표 이미지",
     },
   },
@@ -49,7 +49,7 @@ const categories = [
     cardTone: "from-[#141414] via-[#141414] to-[#101010]",
     burstTone: "netflix-badge",
     heroImage: {
-      src: "/placeholder-user.jpg",
+      src: "/sd.png",
       alt: "그림 발전과정 대표 이미지",
     },
   },
@@ -92,9 +92,6 @@ export default function HomePage() {
   const growthInputRef = useRef<HTMLInputElement>(null)
   const featureInputRef = useRef<HTMLInputElement>(null)
   const feature2InputRef = useRef<HTMLInputElement>(null)
-  const heroFallbacks = homeArtProgress
-    .map((art) => art.thumbnail_url)
-    .filter((url): url is string => Boolean(url))
 
   useEffect(() => {
     const nextImages: Record<HeroKey, string | null> = {
@@ -233,13 +230,13 @@ export default function HomePage() {
 
   const heroSlides = [
     {
-      src: heroImages.feature || heroFallbacks[0] || "/placeholder.jpg",
+      src: heroImages.feature || "/dsnfv.png",
       alt: "겸플릭스 메인 이미지",
       href: "/genre?category=action",
       label: "액션 웹툰 바로 보기",
     },
     {
-      src: heroImages.feature2 || heroFallbacks[1] || heroFallbacks[0] || "/placeholder.jpg",
+      src: heroImages.feature2 || "/sd.png",
       alt: "겸플릭스 두 번째 메인 이미지",
       href: "/genre?category=comedy",
       label: "개그 웹툰 바로 보기",
