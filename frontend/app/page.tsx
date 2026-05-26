@@ -92,6 +92,9 @@ export default function HomePage() {
   const growthInputRef = useRef<HTMLInputElement>(null)
   const featureInputRef = useRef<HTMLInputElement>(null)
   const feature2InputRef = useRef<HTMLInputElement>(null)
+  const heroFallbacks = homeArtProgress
+    .map((art) => art.thumbnail_url)
+    .filter((url): url is string => Boolean(url))
 
   useEffect(() => {
     const nextImages: Record<HeroKey, string | null> = {
@@ -230,13 +233,13 @@ export default function HomePage() {
 
   const heroSlides = [
     {
-      src: heroImages.feature || "/placeholder.jpg",
+      src: heroImages.feature || heroFallbacks[0] || "/placeholder.jpg",
       alt: "겸플릭스 메인 이미지",
       href: "/genre?category=action",
       label: "액션 웹툰 바로 보기",
     },
     {
-      src: heroImages.feature2 || "/placeholder.jpg",
+      src: heroImages.feature2 || heroFallbacks[1] || heroFallbacks[0] || "/placeholder.jpg",
       alt: "겸플릭스 두 번째 메인 이미지",
       href: "/genre?category=comedy",
       label: "개그 웹툰 바로 보기",
