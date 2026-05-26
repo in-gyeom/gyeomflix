@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Bebas_Neue, Manrope, Noto_Sans_KR } from 'next/font/google'
 import Image from 'next/image'
-import Link from 'next/link'
 import './globals.css'
 
 const manrope = Manrope({
@@ -47,7 +46,7 @@ export default function RootLayout({
       <body className={`${manrope.variable} ${notoSansKr.variable} ${bebasNeue.variable} netflix-theme font-sans antialiased`}>
         <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0b0b0b]/95 px-6 py-4 text-white backdrop-blur">
           <div className="mx-auto flex w-full max-w-6xl items-center justify-start gap-8">
-            <Link href="/" className="flex items-center">
+            <a href="/" className="flex items-center">
               <Image
                 src="/gyeomfilx-logo.png.png"
                 alt="겸플릭스 로고"
@@ -55,11 +54,11 @@ export default function RootLayout({
                 height={32}
                 priority
               />
-            </Link>
+            </a>
             <nav className="flex items-center gap-4 text-sm font-semibold text-white/70">
-              <Link href="/profile" className="hover:text-white">작가 프로필</Link>
-              <Link href="/genre" className="hover:text-white">웹툰</Link>
-              <Link href="/art-progress" className="hover:text-white">그림 발전과정</Link>
+              <a href="/profile" className="hover:text-white">작가 프로필</a>
+              <a href="/genre" className="hover:text-white">웹툰</a>
+              <a href="/art-progress" className="hover:text-white">그림 발전과정</a>
             </nav>
           </div>
         </header>

@@ -1,7 +1,6 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { User, Palette, TrendingUp } from "lucide-react"
 import {
@@ -45,7 +44,7 @@ export function AppSidebar() {
   return (
     <Sidebar className="border-r border-white/10 bg-[#0f0f0f]">
       <SidebarHeader className="border-b border-white/10 bg-[#121212] px-5 py-5">
-        <Link href="/" className="flex items-center gap-3">
+        <a href="/" className="flex items-center gap-3">
           <div className="flex size-9 items-center justify-center rounded-2xl bg-[#e50914] text-xs font-semibold uppercase text-white">
             SN
           </div>
@@ -53,7 +52,7 @@ export function AppSidebar() {
             <span className="text-base font-semibold text-white">겸플릭스</span>
             <p className="text-xs text-white/50">Creative Webtoon</p>
           </div>
-        </Link>
+        </a>
       </SidebarHeader>
       <SidebarContent className="bg-[#0f0f0f]">
         <SidebarGroup className="p-3">
@@ -69,10 +68,10 @@ export function AppSidebar() {
                     isActive={mounted && pathname === item.href}
                     className="h-11 rounded-xl border border-white/10 bg-[#141414] px-3 text-white/70 transition-all hover:border-white/20 hover:bg-[#1c1c1c] hover:text-white data-[active=true]:border-[#e50914]/60 data-[active=true]:bg-[#1a1a1a] data-[active=true]:text-white"
                   >
-                    <Link href={item.href} className="flex w-full items-center gap-3">
+                    <a href={item.href} className="flex w-full items-center gap-3">
                       <item.icon className="size-4" />
                       <span className="text-sm font-medium leading-none">{item.title}</span>
-                    </Link>
+                    </a>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
               ))}

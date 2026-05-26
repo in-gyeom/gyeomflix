@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useRef, useState } from "react"
-import Link from "next/link"
 import Image from "next/image"
 import { User, Palette, TrendingUp, Sparkles } from "lucide-react"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
@@ -362,7 +361,7 @@ export default function HomePage() {
     <section className="netflix-home">
       <div className="netflix-hero">
         {heroSlides.map((slide, index) => (
-          <Link
+          <a
             key={slide.href}
             href={slide.href}
             className={`absolute inset-0 z-0 transition-opacity duration-700 ${
@@ -378,7 +377,7 @@ export default function HomePage() {
               sizes="100vw"
               priority={index === 0}
             />
-          </Link>
+          </a>
         ))}
         <div className="netflix-vignette pointer-events-none absolute inset-0" />
         <button
@@ -442,7 +441,7 @@ export default function HomePage() {
           </div>
           <div className="netflix-row-track">
             {categories.map((category) => (
-              <Link key={category.href} href={category.href} className="netflix-row-card group">
+              <a key={category.href} href={category.href} className="netflix-row-card group">
                 <Card className={`netflix-card netflix-tilt ${category.cardTone}`}>
                   {category.heroImage && (
                     <div className="netflix-image-ring netflix-thumb relative aspect-[16/9] w-full overflow-hidden rounded-none">
@@ -483,7 +482,7 @@ export default function HomePage() {
                     </div>
                   </CardContent>
                 </Card>
-              </Link>
+              </a>
             ))}
           </div>
         </div>
@@ -517,9 +516,9 @@ export default function HomePage() {
                     >
                       →
                     </button>
-                    <Link href={`/art-progress?year=${year}`} className="text-xs text-white/50 hover:text-white">
+                    <a href={`/art-progress?year=${year}`} className="text-xs text-white/50 hover:text-white">
                       모두 보기
-                    </Link>
+                    </a>
                   </div>
                 </div>
                 <div

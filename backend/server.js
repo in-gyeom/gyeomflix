@@ -40,6 +40,22 @@ if (!FRONTEND_INDEX_FILE) {
   );
 }
 
+function resolveFrontendRouteFile(requestPath) {
+  if (!FRONTEND_DIST_DIR) {
+    return null;
+  }
+
+  const normalizedPath = requestPath.replace(/\/+$/, "");
+  if (!normalizedPath || normalizedPath === "/") {
+    return null;
+  }
+
+  const relativePath = normalizedPath.startsWith("/") ? normalizedPath.slice(1) : normalizedPath;
+  const candidate = path.join(FRONTEND_DIST_DIR, `${relativePath}.html`);
+
+  return fs.existsSync(candidate) ? candidate : null;
+}
+
 // 미들웨어 설정
 app.use(cors());
 app.use(express.json({ limit: "100mb" }));
@@ -488,6 +504,12 @@ if (fs.existsSync(FRONTEND_DIST_DIR)) {
         res.type("text/plain").sendFile(rewrittenFile);
         return;
       }
+    }
+
+    const routeFile = resolveFrontendRouteFile(req.path);
+    if (routeFile) {
+      res.sendFile(routeFile);
+      return;
     }
 
     if (path.extname(req.path)) {
