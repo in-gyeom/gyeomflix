@@ -8,6 +8,7 @@ const manrope = Manrope({
   subsets: ["latin"],
   variable: "--font-manrope",
   display: "swap",
+  preload: false,
 });
 
 const bebasNeue = Bebas_Neue({
@@ -15,6 +16,7 @@ const bebasNeue = Bebas_Neue({
   weight: "400",
   variable: "--font-bebas",
   display: "swap",
+  preload: false,
 });
 
 const notoSansKr = Noto_Sans_KR({
@@ -22,6 +24,7 @@ const notoSansKr = Noto_Sans_KR({
   weight: ["400", "500", "700"],
   variable: "--font-noto-kr",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
